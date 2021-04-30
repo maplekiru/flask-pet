@@ -22,3 +22,12 @@ db.create_all()
 # app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
 
 toolbar = DebugToolbarExtension(app)
+
+@app.route('/')
+def list_pets():
+    """
+    Make a list of pets with links to their profiles.
+
+    """
+    pets = Pet.query.all()
+    return render_template('pets.html',pets=pets)

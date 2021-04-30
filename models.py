@@ -1,5 +1,4 @@
 """Models for adopt app."""
-
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
@@ -42,13 +41,13 @@ class Pet(db.Model):
     
     #ask about creating uniqueness for full profile? (Add constraint)
 
-    posts = db.relationship('Post',backref='user')
+    # posts = db.relationship('Post',backref='user')
 
     def __repr__(self):
         """Show info about user."""
 
-        u = self
-        return f"<User {u.id} {u.first_name} {u.last_name}>"
+        p = self
+        return f"<Pet {p.id} {p.name} {p.species} {p.age} {p.available}>"
     
 
 
