@@ -1,16 +1,16 @@
 """Flask app for adopt app."""
 
-from flask import Flask
+from flask import Flask, render_template, redirect, flash
 
 from flask_debugtoolbar import DebugToolbarExtension
 
-from models import db, connect_db
+from models import db, connect_db, Pet
 
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = "secret"
 
-app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql:///a"
+app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql:///adopt"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 connect_db(app)
